@@ -1,0 +1,94 @@
+<div class="inventario-container">
+  <button (click)="irAProductos()">Productos</button>
+  <h2>Gestión de Inventario</h2>
+  
+  <!-- Lista de productos -->
+  <div class="productos-lista">
+    <h3>Productos Actuales</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Capacidad</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>${{ producto.precio }}</td>
+          <td>{{ producto.capacidad }}</td>
+          <td>
+            <img [src]="producto.imagen" alt="Imagen de producto" class="producto-thumbnail" 
+                 *ngIf="producto.imagen" />
+            <span *ngIf="!producto.imagen">Sin imagen</span>
+          </td>
+          <td>
+            <button (click)="seleccionarProducto(producto)" class="btn-editar">Editar</button>
+            <button (click)="eliminarProducto(producto.id)" class="btn-eliminar">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Formulario para editar -->
+  <div *ngIf="modoEdicion && productoSeleccionado" class="formulario-edicion">
+    <h3>Editar Producto</h3>
+    <div class="form-group">
+      <label for="edit-nombre">Nombre:</label>
+      <input type="text" id="edit-nombre" [(ngModel)]="productoSeleccionado.nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="edit-precio">Precio:</label>
+      <input type="number" id="edit-precio" [(ngModel)]="productoSeleccionado.precio" required>
+    </div>
+    <div class="form-group">
+      <label for="edit-cantidad">Capacidad:</label>
+      <input type="text" id="edit-capacidad" [(ngModel)]="productoSeleccionado.capacidad" required>
+
+    </div>
+    <div class="form-group">
+      <label for="edit-imagen">URL de la imagen:</label>
+      <input type="text" id="edit-imagen" [(ngModel)]="productoSeleccionado.imagen">
+    </div>
+    <div class="preview" *ngIf="productoSeleccionado.imagen">
+      <img [src]="productoSeleccionado.imagen" alt="Vista previa">
+    </div>
+    <div class="form-actions">
+      <button (click)="actualizarProducto()" class="btn-guardar">Guardar Cambios</button>
+      <button (click)="cancelarEdicion()" class="btn-cancelar">Cancelar</button>
+    </div>
+  </div>
+  
+  <!-- Formulario para agregar -->
+  <div class="formulario-agregar">
+    <h3>Agregar Nuevo Producto</h3>
+    <div class="form-group">
+      <label for="new-nombre">Nombre:</label>
+      <input type="text" id="new-nombre" [(ngModel)]="nuevoProducto.nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="new-precio">Precio:</label>
+      <input type="number" id="new-precio" [(ngModel)]="nuevoProducto.precio" required>
+    </div>
+    <div class="form-group">
+      <label for="capacidad">Capacidad:</label>
+<input type="text" id="capacidad" [(ngModel)]="nuevoProducto.capacidad" required>
+
+    </div>
+    <div class="form-group">
+      <label for="new-imagen">URL de la imagen:</label>
+      <input type="text" id="new-imagen" [(ngModel)]="nuevoProducto.imagen">
+    </div>
+    <div class="preview" *ngIf="nuevoProducto.imagen">
+      <img [src]="nuevoProducto.imagen" alt="Vista previa">
+    </div>
+    <button (click)="agregarProducto()" class="btn-agregar">Agregar Producto</button>
+  </div>
+</div>
+

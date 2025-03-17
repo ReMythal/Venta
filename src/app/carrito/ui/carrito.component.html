@@ -1,0 +1,21 @@
+<div>
+    <h2>Carrito</h2>
+    @if (carrito.length > 0) {
+        <ul>
+            @for (producto of carrito; track producto.id) {
+            <li>
+                {{producto.nombre}} - {{producto.precio}}
+
+                <button (click) = "eliminarProducto($index)">Eliminar</button>
+            </li>
+            }
+        </ul>
+        <button (click) = "generarXML()">
+            Pagar
+        </button>
+    }
+
+    @if (carrito.length === 0) {
+        <p>El carrito esta vacio</p>
+    }
+</div>

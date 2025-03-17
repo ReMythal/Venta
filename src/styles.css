@@ -1,0 +1,66 @@
+/* 🌎 Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+/* 🔘 Botones de navegación */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav-buttons button {
+    margin: 5px;
+}
+
+/* 📥 Inputs */
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    width: 90%;
+    font-size: 16px;
+}
+
+/* 📌 Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px;
+}
