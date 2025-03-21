@@ -4,42 +4,49 @@
         <nombre>Samsung 970 EVO Plus NVMe M.2</nombre>
         <precio>2200</precio>
         <capacidad>1TB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>Samsung.jpg</imagen>
     </producto>
     <producto id="2">
         <nombre>Crucial P3 NVMe M.2</nombre>
         <precio>1800</precio>
         <capacidad>500GB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>Crucial.jpg</imagen>
     </producto>
     <producto id="3">
         <nombre>WD Black SN850X NVMe M.2</nombre>
         <precio>3000</precio>
         <capacidad>2TB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>black.jpg</imagen>
     </producto>
     <producto id="4">
         <nombre>Kingston NV2 NVMe M.2</nombre>
         <precio>1600</precio>
         <capacidad>1TB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>Kingston.jpg</imagen>
     </producto>
     <producto id="5">
         <nombre>Samsung 870 EVO SATA SSD</nombre>
         <precio>2500</precio>
         <capacidad>2TB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>Samsung_870.jpg</imagen>
     </producto>
     <producto id="6">
         <nombre>Crucial MX500 SATA SSD</nombre>
         <precio>2100</precio>
         <capacidad>1TB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>Crucial MX500.jpg</imagen>
     </producto>
     <producto id="7">
         <nombre>WD Blue 3D NAND SATA SSD</nombre>
         <precio>1900</precio>
         <capacidad>500GB</capacidad>
+        <cantidad>10</cantidad>
         <imagen>WD_Blue_3D.jpg</imagen>
     </producto>
 </productos>

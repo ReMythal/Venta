@@ -11,7 +11,8 @@
           <th>ID</th>
           <th>Nombre</th>
           <th>Precio</th>
-          <th>Capacidad</th>
+          <th>Capacidad</th> <!-- Agregado -->
+          <th>Cantidad</th> <!-- Agregado -->
           <th>Imagen</th>
           <th>Acciones</th>
         </tr>
@@ -20,16 +21,13 @@
         <tr *ngFor="let producto of productos">
           <td>{{ producto.id }}</td>
           <td>{{ producto.nombre }}</td>
-          <td>${{ producto.precio }}</td>
-          <td>{{ producto.capacidad }}</td>
+          <td>{{ producto.precio | currency }}</td>
+          <td>{{ producto.capacidad }}</td> <!-- Agregado -->
+          <td>{{ producto.cantidad }}</td> <!-- Agregado -->
+          <td><img [src]="producto.imagen" alt="Imagen de Producto" width="50"></td>
           <td>
-            <img [src]="producto.imagen" alt="Imagen de producto" class="producto-thumbnail" 
-                 *ngIf="producto.imagen" />
-            <span *ngIf="!producto.imagen">Sin imagen</span>
-          </td>
-          <td>
-            <button (click)="seleccionarProducto(producto)" class="btn-editar">Editar</button>
-            <button (click)="eliminarProducto(producto.id)" class="btn-eliminar">Eliminar</button>
+            <button (click)="seleccionarProducto(producto)">Editar</button>
+            <button (click)="eliminarProducto(producto.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
@@ -51,6 +49,10 @@
       <label for="edit-cantidad">Capacidad:</label>
       <input type="text" id="edit-capacidad" [(ngModel)]="productoSeleccionado.capacidad" required>
 
+    </div>
+    <div class="form-group">
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" [(ngModel)]="productoSeleccionado.cantidad" required>
     </div>
     <div class="form-group">
       <label for="edit-imagen">URL de la imagen:</label>
@@ -79,6 +81,10 @@
     <div class="form-group">
       <label for="capacidad">Capacidad:</label>
 <input type="text" id="capacidad" [(ngModel)]="nuevoProducto.capacidad" required>
+<div class="form-group">
+  <label for="cantidad">cantidad:</label>
+  <input type="number" id="cantidad" [(ngModel)]="nuevoProducto.cantidad" required>
+</div>
 
     </div>
     <div class="form-group">

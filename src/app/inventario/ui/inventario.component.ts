@@ -22,7 +22,8 @@ export class InventarioComponent implements OnInit {
     nombre: '',
     precio: 0,
     capacidad: '',  // Cambio de cantidad a capacidad
-    imagen: ''
+    imagen: '',
+    cantidad: 0
   };
 
   constructor(
@@ -83,7 +84,8 @@ export class InventarioComponent implements OnInit {
       nombre: '',
       precio: 0,
       capacidad: '',  // Cambio de cantidad a capacidad
-      imagen: ''
+      imagen: '',
+      cantidad: 0,
     };
   }
 

@@ -33,7 +33,7 @@ export class ProductoService {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xml, 'text/xml');
     const productos: Producto[] = [];
-    
+  
     Array.from(xmlDoc.getElementsByTagName('producto')).forEach(prod => {
       const id = parseInt(prod.getAttribute('id') || '0');
       
@@ -42,10 +42,12 @@ export class ProductoService {
         nombre: prod.getElementsByTagName('nombre')[0]?.textContent || '',
         imagen: prod.getElementsByTagName('imagen')[0]?.textContent || '',
         precio: parseInt(prod.getElementsByTagName('precio')[0]?.textContent || '0'),
-        capacidad: prod.getElementsByTagName('capacidad')[0]?.textContent || ''
+        capacidad: prod.getElementsByTagName('capacidad')[0]?.textContent || '',  // Capacidad
+        cantidad: parseInt(prod.getElementsByTagName('cantidad')[0]?.textContent || '0') // Cantidad
       });
     });
-    
+  
     return productos;
   }
+  
 }

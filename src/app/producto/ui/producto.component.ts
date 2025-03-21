@@ -25,7 +25,7 @@ export class ProductoComponent implements OnInit {
   }
 
   agregarAlCarrito(producto:any) {
-    this.carritoService.agregarProducto(producto);
+    this.carritoService.agregarProducto(producto, 1);
   }
 
   irAlCarrito() {
