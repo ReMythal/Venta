@@ -1,15 +1,22 @@
-<div *ngFor="let producto of carrito">
-    <div>
-      <h3>{{producto.nombre}}</h3>
-      <p>Precio: ${{producto.precio}}</p>
-      <p>Capacidad: {{producto.capacidad}}</p>
+<div class="carrito-container">
+  <h2>Carrito de Compras</h2>
   
-      <!-- Botones para aumentar y disminuir la cantidad -->
-      <button (click)="disminuirCantidad(producto)">-</button>
-      <span>{{producto.cantidad}}</span> <!-- Muestra la cantidad del producto -->
-      <button (click)="aumentarCantidad(producto)">+</button>
-      <button (click)="eliminarProducto(producto)">Eliminar</button>
+  <div class="productos-lista">
+    <div *ngFor="let producto of carrito" class="producto-item">
+      <h3>{{ producto.nombre }}</h3>
+      <p>Precio: ${{ producto.precio }}</p>
+      <div class="cantidad-controls">
+        <button (click)="disminuirCantidad(producto)">-</button>
+        <span>{{ producto.cantidad }}</span>
+        <button (click)="aumentarCantidad(producto)">+</button>
+      </div>
+      <button (click)="eliminarProducto(producto)" class="eliminar-btn">Eliminar</button>
     </div>
   </div>
-  <button (click)="generarXML()">Descargar Carrito</button>
+
+  <div class="carrito-total">
+    <h3>Total: ${{ total }}</h3>
+    <div id="paypal-button-container"></div>
+  </div>
+</div>
   

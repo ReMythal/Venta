@@ -1,40 +1,66 @@
 /* 🛒 Estilos del Carrito */
-.cart-container {
+.carrito-container {
     max-width: 800px;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.cart-item {
+.productos-lista {
+    margin-bottom: 20px;
+}
+
+.producto-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cantidad-controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
+    gap: 10px;
 }
 
-.cart-item img {
-    width: 50px;
-    height: 50px;
+.cantidad-controls button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cantidad-controls button:hover {
+    background-color: #0056b3;
+}
+
+.eliminar-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.eliminar-btn:hover {
+    background-color: #c82333;
+}
+
+.carrito-total {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
     border-radius: 5px;
+    text-align: center;
 }
 
-.cart-item h3 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.remove-button {
-    background-color: #e74c3c;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.remove-button:hover {
-    background-color: #c0392b;
+#paypal-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }

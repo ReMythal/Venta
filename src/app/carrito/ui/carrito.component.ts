@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { CarritoService } from '../data-access/carrito.service';
 import { Producto } from '../../producto/interfaces/producto';
 import { InventarioService } from '../../inventario/data-access/inventario.service';
+import { PaypalService } from '../data-access/paypal.service';
+
+declare var paypal: any;
+
 @Component({
   selector: 'app-carrito',
   standalone: true,
@@ -10,17 +14,42 @@ import { InventarioService } from '../../inventario/data-access/inventario.servi
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
-
 export class CarritoComponent implements OnInit {
   carrito: Producto[] = [];
+  total: number = 0;
 
   constructor(
     private carritoService: CarritoService,
-    private inventarioService: InventarioService // Inyectamos el servicio de Inventario
+    private inventarioService: InventarioService,
+    private paypalService: PaypalService
   ) {}
 
   ngOnInit(): void {
     this.carrito = this.carritoService.obtenerCarrito();
+    this.calcularTotal();
+    this.initializePayPal();
+  }
+
+  calcularTotal(): void {
+    this.total = this.carrito.reduce((sum, producto) => 
+      sum + (producto.precio * producto.cantidad), 0);
+  }
+
+  async initializePayPal(): Promise<void> {
+    await this.paypalService.initializePayPal();
+    paypal.Buttons({
+      createOrder: async () => {
+        try {
+          const orderId = await this.paypalService.createOrder(this.total);
+          return orderId;
+        } catch (error) {
+          console.error('Error al crear la orden:', error);
+          throw error;
+        }
+      },
+      onApprove: (data: any, actions: any) => this.paypalService.onApprove(data, actions),
+      onError: (err: any) => this.paypalService.onError(err)
+    }).render('#paypal-button-container');
   }
 
 // Aumentar cantidad de producto en carrito
